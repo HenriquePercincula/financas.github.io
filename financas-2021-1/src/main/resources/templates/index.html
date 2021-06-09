@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="appFinancas">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="./js/app.js"></script>
+</head>
+<body ng-controller="indexController">
+Oi, {{nome +" "+ sobrenome}} (¬_¬)
+<br>
+Numero: <input type="text" ng-model="conta.numero" ></input><br>
+Agência: <input type="text" ng-model="conta.agencia" ></input><br>
+Saldo: <input type="text" ng-model="conta.saldo"></input><br>
+Titular: <input type="text" ng-model="conta.titular" ></input><br>
+<input type="submit" value="Salvar" ng-click="salvarConta(conta)"/>
+<input type="submit" value="Cancelar" ng-click="cancelarEditarConta()"/>
+
+
+
+<ul ng-repeat="c in contas">
+	<li>{{c.id}} - O saldo de {{c.titular}} é {{c.saldo | currency : "R$ "}}</li>
+	<input type="submit" value="Excluir" ng-click="excluirConta($index)"/>	
+	<input type="submit" value="Editar" ng-click="editarConta(c)"/>	
+</ul>
+
+</body>
+</html>
